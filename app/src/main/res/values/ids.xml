@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="loginDescription" type="id" />
+    <item name="usernameEditText" type="id" />
+    <item name="passwordEditText" type="id" />
+    <item name="signInButton" type="id" />
+    <item name="signUpTextView" type="id" />
+    <item name="add_icon" type="id" />
+    <item name="imageViewProducto" type="id" />
+    <item name="textViewNombre" type="id" />
+    <item name="textViewPrecio" type="id" />
+    <item name="recyclerViewFavoritos" type="id" />
+</resources>

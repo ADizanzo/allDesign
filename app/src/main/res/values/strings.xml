@@ -1,0 +1,111 @@
+<resources>
+    <string name="app_name">AllDesign</string>
+
+    <!-- Logos -->
+    <string name="logo_app">Logo de la aplicación</string>
+    <string name="logo_app_blanco">Logo blanco de la aplicación</string>
+
+    <!-- Flechas -->
+    <string name="back_arrow">Flecha atrás</string>
+
+    <!-- Productos -->
+    <string name="sofa">Sofá</string>
+    <string name="lampara">Lámpara</string>
+    <string name="MuebleRústico">Mueble Rústico</string>
+    <string name="chair">Silla</string>
+    <string name="tv">Televisor</string>
+    <string name="velador">Velador</string>
+    <string name="mueble">Mueble Rústico</string>
+
+    <string name="tele">Samsung TV</string>
+    <string name="samsung_tv">Samsung TV</string>
+
+    <!-- Login y Registro -->
+    <string name="login_to_your_account">Inicia sesión en tu cuenta</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="sign_in">Iniciar sesión</string>
+    <string name="don_t_have_an_account">¿No tienes una cuenta?</string>
+    <string name="sign_up">Registrarse</string>
+    <string name="create_your_account">Crea tu cuenta</string>
+    <string name="confirm_password">Confirmar contraseña</string>
+
+    <!-- Textos -->
+    <string name="find_the_best_home_furniture_for_your_room">Encuentra los mejores muebles para tu habitación.</string>
+
+    <!-- Iconos -->
+    <string name="back_icon" />
+    <string name="add_icon">Icono de agregar</string>
+    <string name="home">Inicio</string>
+    <string name="heart">Corazón</string>
+    <string name="usuario">Usuario</string>
+    <string name="carrito">Carrito</string>
+    <string name="all">All</string>
+
+    <!-- Botones -->
+    <string name="comprar">Comprar</string>
+
+    <!-- Precios -->
+    <string name="value18000">$18000</string>
+    <string name="value57000">$57000</string>
+    <string name="value36000">$36000</string>
+    <string name="value112000">$112000</string>
+
+    <!-- Círculos -->
+    <string name="gris_circle">Círculo gris</string>
+    <string name="marron_circle">Círculo marrón</string>
+    <string name="black_circle">Círculo negro</string>
+    <string name="room_sofa">Room Sofa</string>
+
+    <!-- Descripciones -->
+    <string name="descripci_nsofa">Sofá moderno de madera para sala de estar. Ideal
+        para lectura o descanso. Puedes elegir el color
+        del cojín para combinarlo con tu ambiente.
+        Transforma tu espacio con estilo y comodidad.</string>
+
+    <string name="descripci_ntv">Televisor LED de alta definición con pantalla
+        de 55 pulgadas, resolución 4K y tecnología
+        Smart TV. Ofrece imágenes vibrantes, sonido
+        envolvente y acceso a aplicaciones populares.
+        Diseño delgado y elegante para una experiencia
+        visual inigualable.</string>
+    <string name="descripci_nvelador">Lámpara de mesa moderna con base de
+        madera rústica y pantalla de tela suave.
+        Iluminación ajustable que crea un ambiente
+        acogedor. Perfecta para lectura nocturna y
+        decoración elegante.</string>
+    <string name="descripci_nmueble">Mueble rústico evoca encanto campestre con
+        madera envejecida, líneas simples y detalles
+        artesanales. Resalta la belleza natural y aporta
+        calidez a cualquier espacio con su estilo atemporal.</string>
+
+
+    <!-- Pago -->
+    <string name="n_mero_de_tarjeta">Número de tarjeta</string>
+    <string name="nombre_del_titular">Nombre del titular</string>
+    <string name="fecha_de_vencimiento">Fecha de vencimiento</string>
+    <string name="cvv">CVV</string>
+    <string name="pagar">Pagar</string>
+
+
+    <string name="heart_icon" />
+    <string name="product_image" />
+    <string name="add_to_favorites">Add to Favorites</string>
+    <string name="product_price">Product Price</string>
+    <string name="product_name">Product Name</string>
+    <string name="eliminar_favorito">Eliminar</string>
+    <string name="cargar_favorito">Comprar</string>
+    <string name="crear_cuenta">Crear Cuenta</string>
+    <string name="producto">producto</string>
+    <string name="cargar_favoritos" />
+    <string name="ver_producto">Ver</string>
+    <string name="val">Nombre:</string>
+    <string name="nreg">Cod:</string>
+    <string name="ins">Agrega</string>
+    <string name="act">Actual</string>
+    <string name="elim">Borra</string>
+    <string name="cons">Listar</string>
+
+
+</resources>

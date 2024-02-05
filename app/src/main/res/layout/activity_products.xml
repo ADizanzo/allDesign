@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductsActivity">
+
+    <!-- Texto "All" -->
+    <TextView
+        android:id="@+id/allText"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:background="#748EA9"
+        android:text="@string/all"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvSquare"
+        android:contentDescription="@string/all"/>
+
+    <!-- Icono Sofa -->
+    <ImageView
+        android:id="@+id/tvSquare"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
+        android:contentDescription="@string/sofa"
+        android:src="@drawable/sofa"
+        app:layout_constraintEnd_toStartOf="@+id/lampSquare"
+        app:layout_constraintStart_toEndOf="@+id/allText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Icono TV -->
+    <ImageView
+        android:id="@+id/lampSquare"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
+        android:contentDescription="@string/tv"
+        android:src="@drawable/tv"
+        app:layout_constraintEnd_toStartOf="@+id/furnitureSquare"
+        app:layout_constraintStart_toEndOf="@+id/tvSquare"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Icono Velador -->
+    <ImageView
+        android:id="@+id/furnitureSquare"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
+        android:contentDescription="@string/lampara"
+        android:src="@drawable/lampara"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lampSquare"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!-- Tarjeta 1 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/allText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/card2"
+        app:layout_constraintBottom_toTopOf="@+id/card3">
+
+        <!-- Contenido de la tarjeta -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Imagen del producto -->
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/chair"
+                android:scaleType="centerCrop"
+                android:src="@drawable/chair2"
+                tools:ignore="ImageContrastCheck" />
+
+            <!-- Título del producto -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/room_sofa"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:layout_marginTop="15dp"/>
+
+            <!-- Precio del producto -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/value57000"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <!-- Icono "Más" -->
+            <ImageView
+                android:id="@+id/add_icon1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/add_icon"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/add_icon"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tarjeta 2 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/allText"
+        app:layout_constraintStart_toEndOf="@+id/card1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/card4">
+
+        <!-- Contenido de la tarjeta -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Imagen del producto -->
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="80dp"
+                android:src="@drawable/tele"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/tele"/>
+
+            <!-- Título del producto -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/samsung_tv"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:layout_marginTop="15dp"/>
+
+            <!-- Precio del producto -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/value112000"
+                android:textSize="16sp"
+                android:textColor="#000000"/>
+
+            <!-- Icono "Más" -->
+            <ImageView
+                android:id="@+id/add_icon2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/add_icon"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/add_icon"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tarjeta 3 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/card1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/card4"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationBar">
+
+        <!-- Contenido de la tarjeta -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Imagen del producto -->
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="140dp"
+                android:contentDescription="@string/velador"
+                android:scaleType="centerCrop"
+                android:src="@drawable/velador"
+                tools:ignore="ImageContrastCheck" />
+
+            <!-- Título del producto -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/velador"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:layout_marginTop="10dp"/>
+
+            <!-- Precio del producto -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/value18000"
+                android:textSize="16sp"
+                android:textColor="#000000"/>
+
+            <!-- Icono "Más" -->
+            <ImageView
+                android:id="@+id/add_icon3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/add_icon"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/add_icon"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tarjeta 4 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/card2"
+        app:layout_constraintStart_toEndOf="@+id/card3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationBar">
+
+        <!-- Contenido de la tarjeta -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Imagen del producto -->
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:src="@drawable/mueble"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/mueble"/>
+
+            <!-- Título del producto -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/MuebleRústico"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:layout_marginTop="15dp"/>
+
+            <!-- Precio del producto -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/value36000"
+                android:textSize="16sp"
+                android:textColor="#000000"/>
+
+            <!-- Icono "Más" -->
+            <ImageView
+                android:id="@+id/add_icon4"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/add_icon"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/add_icon"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Barra de navegación inferior -->
+    <LinearLayout
+        android:id="@+id/bottomNavigationBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Icono 1 -->
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:src="@drawable/home"
+            android:contentDescription="@string/home"/>
+
+        <!-- Icono 2 -->
+        <ImageView
+            android:id="@+id/heart"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:src="@drawable/heart"
+            android:contentDescription="@string/heart"/>
+
+        <!-- Icono 3 -->
+        <ImageView
+            android:id="@+id/cart"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:src="@drawable/carrito"
+            android:contentDescription="@string/carrito"/>
+
+        <!-- Icono 4 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:src="@drawable/usuario"
+            android:contentDescription="@string/usuario"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
