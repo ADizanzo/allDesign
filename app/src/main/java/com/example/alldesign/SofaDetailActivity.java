@@ -1,7 +1,6 @@
 package com.example.alldesign;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SofaDetailActivity extends AppCompatActivity {
 
-    private SQLiteDatabase db;
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,7 @@ public class SofaDetailActivity extends AppCompatActivity {
 
 
 
-
+        databaseHelper = new DatabaseHelper(this);
 
         // Obtén la referencia al ImageView del ícono del corazón en la esquina superior derecha
         ImageView heartFavIconImageView = findViewById(R.id.heartIcon);
@@ -43,12 +42,13 @@ public class SofaDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // Mensaje de "Agregado a Favoritos"
-                Toast.makeText(SofaDetailActivity.this, "¡Agregado a Favoritos!", Toast.LENGTH_SHORT).show();
-
-                // Cuando se hace clic en el ícono del corazón, inicia la FavoritosActivity
-                Intent intent = new Intent(SofaDetailActivity.this, FavoritosActivity.class);
-                startActivity(intent);
+                // Insertar producto en favoritos
+                long resultado = databaseHelper.insertarProducto(getString(R.string.room_sofa), getString(R.string.value57000));
+                if (resultado != -1) {
+                    Toast.makeText(SofaDetailActivity.this, "¡Agregado a Favoritos!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(SofaDetailActivity.this, "Error al agregar a Favoritos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

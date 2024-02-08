@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class VeladorDetailActivity extends AppCompatActivity {
 
+    private DatabaseHelper databaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,25 +30,24 @@ public class VeladorDetailActivity extends AppCompatActivity {
             }
         });
 
+
+        databaseHelper = new DatabaseHelper(this);
+
         // Obtén la referencia al ImageView del ícono del corazón en la esquina superior derecha
-        ImageView heartFavtIconImageView = findViewById(R.id.heartIcon);
+        ImageView heartFavIconImageView = findViewById(R.id.heartIcon);
 
         // Establece un OnClickListener para el ícono del corazón en la esquina superior derecha
-        heartFavtIconImageView.setOnClickListener(new View.OnClickListener() {
+        heartFavIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Realiza la acción de agregar el producto a la lista de favoritos
-                agregarProductoAFavoritos();
 
-                // Mensaje de "Agregado a Favoritos"
-                Toast.makeText(VeladorDetailActivity.this, "¡Agregado a Favoritos!", Toast.LENGTH_SHORT).show();
-
-                // Cuando se hace clic en el ícono del corazón, inicia la FavoritosActivity
-                Intent intent = new Intent(VeladorDetailActivity.this, FavoritosActivity.class);
-                intent.putExtra("productName", getString(R.string.velador));
-                intent.putExtra("productImage", R.drawable.velador);
-                intent.putExtra("productPrice", getString(R.string.value18000));
-                startActivity(intent);
+                // Insertar producto en favoritos
+                long resultado = databaseHelper.insertarProducto(getString(R.string.velador), getString(R.string.value18000));
+                if (resultado != -1) {
+                    Toast.makeText(VeladorDetailActivity.this, "¡Agregado a Favoritos!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(VeladorDetailActivity.this, "Error al agregar a Favoritos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

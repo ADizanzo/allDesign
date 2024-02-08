@@ -62,11 +62,11 @@ public class CarritoActivity extends AppCompatActivity {
         btnConsultar = (Button)findViewById(R.id.btnConsultar);
 
 
-        // Abrimos la base de datos 'favoritos.db' en modo escritura
-        DatabaseHelper produdb =
-                new DatabaseHelper(this, "favorites.db", null, 1);
+        // Abrimos la base de datos 'favorites.db' en modo escritura
+       // DatabaseHelper produdb =
+                // new DatabaseHelper(this, "favorites.db", null, 1);
 
-        db = produdb.getWritableDatabase();
+       // db = produdb.getWritableDatabase();
 
         btnInsertar.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {

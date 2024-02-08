@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MuebleDetailActivity extends AppCompatActivity {
 
+    private DatabaseHelper databaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,25 +30,24 @@ public class MuebleDetailActivity extends AppCompatActivity {
             }
         });
 
+
+        databaseHelper = new DatabaseHelper(this);
+
         // Obtén la referencia al ImageView del ícono del corazón en la esquina superior derecha
-        ImageView heartFavtIconImageView = findViewById(R.id.heartIcon);
+        ImageView heartFavIconImageView = findViewById(R.id.heartIcon);
 
         // Establece un OnClickListener para el ícono del corazón en la esquina superior derecha
-        heartFavtIconImageView.setOnClickListener(new View.OnClickListener() {
+        heartFavIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Realiza la acción de agregar el producto a la lista de favoritos
-                agregarProductoAFavoritos();
 
-                // Mensaje de "Agregado a Favoritos"
-                Toast.makeText(MuebleDetailActivity.this, "¡Agregado a Favoritos!", Toast.LENGTH_SHORT).show();
-
-                // Cuando se hace clic en el ícono del corazón, inicia la FavoritosActivity
-                Intent intent = new Intent(MuebleDetailActivity.this, FavoritosActivity.class);
-                intent.putExtra("productName", getString(R.string.MuebleRústico));
-                intent.putExtra("productImage", R.drawable.mueble);
-                intent.putExtra("productPrice", getString(R.string.value36000));
-                startActivity(intent);
+                // Insertar producto en favoritos
+                long resultado = databaseHelper.insertarProducto(getString(R.string.mueble), getString(R.string.value36000));
+                if (resultado != -1) {
+                    Toast.makeText(MuebleDetailActivity.this, "¡Agregado a Favoritos!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MuebleDetailActivity.this, "Error al agregar a Favoritos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
