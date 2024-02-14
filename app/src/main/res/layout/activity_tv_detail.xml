@@ -31,51 +31,54 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <!-- Imagen Tv -->
     <ImageView
         android:id="@+id/sofaImage"
         android:layout_width="0dp"
         android:layout_height="200dp"
-        android:src="@drawable/tele"
-        app:layout_constraintTop_toBottomOf="@+id/backIcon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="70dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="16dp"
-        android:contentDescription="@string/mueble" />
+        android:contentDescription="@string/mueble"
+        android:src="@drawable/tele"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backIcon" />
 
     <!-- Título Tv -->
     <TextView
         android:id="@+id/sofaTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/samsung_tv"
-        android:textSize="24sp"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/sofaImage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="80dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/samsung_tv"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sofaImage" />
 
     <!-- Descripción Tv -->
     <TextView
         android:id="@+id/sofaDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/descripci_ntv"
-        android:textSize="16sp"
-        android:textColor="#555555"
-        app:layout_constraintTop_toBottomOf="@+id/sofaTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="6dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
+        android:text="@string/descripci_ntv"
+        android:textColor="#555555"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sofaTitle"
         tools:ignore="VisualLintLongText" />
 
     <!-- Precio Tv -->
@@ -108,6 +111,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sofaDescription"
         tools:ignore="TextContrastCheck" />
+
+    <!-- Botón Agregar al Carrito -->
+    <Button
+        android:id="@+id/btnAddToCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/agregar_al_carrito"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBuy"
+        tools:ignore="TextContrastCheck" />
+
 
 
     <!-- Barra de navegación inferior -->

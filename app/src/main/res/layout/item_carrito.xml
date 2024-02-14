@@ -35,17 +35,6 @@
         android:textColor="@android:color/black"
         android:text="@string/product_price" />
 
-    <!-- Botón para Ver producto-->
-    <Button
-        android:id="@+id/btnConsultar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#748EA9"
-        android:text="@string/ver_producto"
-        android:textSize="14sp"
-        android:textColor="#FFFFFF"
-        tools:ignore="HardcodedText,TextContrastCheck" />
-
     <!-- Botón Eliminar -->
     <Button
         android:id="@+id/btnEliminar"
@@ -55,6 +44,13 @@
         android:textSize="14sp"
         tools:ignore="HardcodedText,TextContrastCheck" />
 
-
+    <!-- Botón Comprar -->
+    <Button
+        android:id="@+id/btnComprar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comprar"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
 </LinearLayout>

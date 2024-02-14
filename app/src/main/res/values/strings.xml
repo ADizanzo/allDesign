@@ -107,6 +107,7 @@
     <string name="elim">Borra</string>
     <string name="cons">Listar</string>
     <string name="type_sofa" />
+    <string name="agregar_al_carrito">Agregar al Carrito</string>
 
 
 </resources>

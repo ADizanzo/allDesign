@@ -16,153 +16,59 @@
         android:layout_height="40dp"
         android:src="@drawable/back"
         android:contentDescription="@string/back_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"/>
 
-    <LinearLayout
+    <!-- ListView para mostrar los productos en el carrito -->
+    <ListView
+        android:id="@+id/listViewCarrito"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nreg" />
-
-        <EditText
-            android:id="@+id/txtReg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:autofillHints=""
-            android:ems="10"
-            android:inputType="number"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck">
-
-            <requestFocus />
-        </EditText>
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/val" />
-
-        <EditText
-            android:id="@+id/txtVal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
-            android:autofillHints="" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <Button
-            android:id="@+id/btnInsertar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#748EA9"
-            android:text="@string/ins"
-            android:textColor="#FFFFFF"
-            tools:ignore="ButtonStyle,TextContrastCheck" />
-
-        <Button
-            android:id="@+id/btnActualizar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#748EA9"
-            android:text="@string/act"
-            android:textColor="#FFFFFF"
-            tools:ignore="ButtonStyle,TextContrastCheck" />
-
-        <Button
-            android:id="@+id/btnEliminar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#748EA9"
-            android:text="@string/elim"
-            android:textColor="#FFFFFF"
-            tools:ignore="ButtonStyle,TextContrastCheck" />
-
-        <Button
-            android:id="@+id/btnConsultar"
-            android:layout_width="104dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#748EA9"
-            android:text="@string/cons"
-            android:textColor="#FFFFFF"
-            tools:ignore="ButtonStyle,TextContrastCheck" />
-
-    </LinearLayout>
-
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider" />
-
-    <TextView
-        android:id="@+id/txtResultado"
-        android:layout_width="388dp"
-        android:layout_height="461dp"
-        android:text="" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <!-- Barra de navegación inferior -->
     <LinearLayout
         android:id="@+id/bottomNavigationBar"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="#FFFFFF"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:padding="8dp">
 
-    <!-- Icono 1 -->
-    <ImageView
-        android:id="@+id/home"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_weight="1"
-        android:src="@drawable/home"
-        android:contentDescription="@string/home"/>
+        <!-- Icono 1 -->
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:src="@drawable/home"
+            android:contentDescription="@string/home"/>
 
-    <!-- Icono 2 -->
-    <ImageView
-        android:id="@+id/heart"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_weight="1"
-        android:src="@drawable/heart"
-        android:contentDescription="@string/heart"/>
+        <!-- Icono 2 -->
+        <ImageView
+            android:id="@+id/heart"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:src="@drawable/heart"
+            android:contentDescription="@string/heart"/>
 
-    <!-- Icono 3 -->
-    <ImageView
-        android:id="@+id/cart"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_weight="1"
-        android:src="@drawable/carrito"
-        android:contentDescription="@string/carrito"/>
+        <!-- Icono 3 -->
+        <ImageView
+            android:id="@+id/cart"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:src="@drawable/carrito"
+            android:contentDescription="@string/carrito"/>
 
-    <!-- Icono 4 -->
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_weight="1"
-        android:src="@drawable/usuario"
-        android:contentDescription="@string/usuario"/>
+        <!-- Icono 4 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:src="@drawable/usuario"
+            android:contentDescription="@string/usuario"/>
     </LinearLayout>
 
 

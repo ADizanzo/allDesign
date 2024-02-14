@@ -33,32 +33,54 @@ public class TvDetailActivity extends AppCompatActivity {
 
         databaseHelper = new DatabaseHelper(this);
 
-        // Obtén la referencia al ImageView del ícono del corazón en la esquina superior derecha
+        // Obtener la referencia al ImageView del icono del corazón (favoritos)
         ImageView heartFavIconImageView = findViewById(R.id.heartIcon);
 
-        // Establece un OnClickListener para el ícono del corazón en la esquina superior derecha
+        // Establecer un OnClickListener para el icono del corazón (favoritos)
         heartFavIconImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Datos del producto a agregar a favoritos
+                String productName = getString(R.string.samsung_tv);
+                String productPrice = getString(R.string.value112000);
+
+                // Insertar el producto en la base de datos de favoritos
+                long result = databaseHelper.insertarProducto(productName, productPrice);
+                if (result != -1) {
+                    // Mostrar mensaje de éxito
+                    Toast.makeText(TvDetailActivity.this, "Producto agregado a favoritos", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Mostrar mensaje de error si falla la inserción
+                    Toast.makeText(TvDetailActivity.this, "Error al agregar el producto a favoritos", Toast.LENGTH_SHORT).show();
+                }
+                // Iniciar la actividad FavoritosActivity al hacer clic en el icono home
+                Intent intent = new Intent(TvDetailActivity.this, FavoritosActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Obtén la referencia del botón Agregar al Carrito
+        Button addToCartButton = findViewById(R.id.btnAddToCart);
+
+        // Establece un OnClickListener para el botón Agregar al Carrito
+        addToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Obtener los datos del producto
                 String productName = getString(R.string.samsung_tv);
                 String productPrice = getString(R.string.value112000);
-                int productImage = R.drawable.tele;
+                // Aquí puedes agregar más lógica para obtener otros detalles del producto si es necesario
 
-                // Insertar producto en favoritos
-                long resultado = databaseHelper.insertarProducto(getString(R.string.samsung_tv), getString(R.string.value112000));
+                // Insertar producto en el carrito
+                long resultado = databaseHelper.insertarProducto(productName, productPrice);
                 if (resultado != -1) {
-                    Toast.makeText(TvDetailActivity.this, "¡Agregado a Favoritos!", Toast.LENGTH_SHORT).show();
-
-                    // Iniciar FavoritosActivity y pasar datos del producto
-                    Intent intent = new Intent(TvDetailActivity.this, FavoritosActivity.class);
-                    intent.putExtra("productName", productName);
-                    intent.putExtra("productPrice", productPrice);
-                    intent.putExtra("productImage", productImage);
-                    startActivity(intent);
+                    Toast.makeText(TvDetailActivity.this, "¡Producto agregado al carrito!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(TvDetailActivity.this, "Error al agregar a Favoritos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TvDetailActivity.this, "Error al agregar el producto al carrito", Toast.LENGTH_SHORT).show();
                 }
+                // Cuando se hace clic en el botón Agregar al Carrito, inicia la CarritoActivity
+                Intent intent = new Intent(TvDetailActivity.this, CarritoActivity.class);
+                startActivity(intent);
             }
         });
 

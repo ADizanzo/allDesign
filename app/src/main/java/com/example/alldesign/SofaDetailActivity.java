@@ -11,58 +11,56 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SofaDetailActivity extends AppCompatActivity {
 
+    private CarritoHelper carritoHelper;
     private DatabaseHelper databaseHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sofa_detail);
 
-        // Obtén la referencia al ImageView del icono de retroceso
+        // Inicializar el helper de la base de datos del carrito
+        carritoHelper = new CarritoHelper(this);
+
+        // Obtener la referencia al ImageView del icono de retroceso
         ImageView backIconImageView = findViewById(R.id.backIcon);
 
-        // Establece un OnClickListener para el icono de retroceso
+        // Establecer un OnClickListener para el icono de retroceso
         backIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Cuando se hace clic en el icono de retroceso, finaliza la actividad actual
+                // Finalizar la actividad actual al hacer clic en el icono de retroceso
                 finish();
             }
         });
 
 
-
-        databaseHelper = new DatabaseHelper(this);
-
-        // Obtén la referencia al ImageView del ícono del corazón en la esquina superior derecha
+        // Obtener la referencia al ImageView del icono del corazón (favoritos)
         ImageView heartFavIconImageView = findViewById(R.id.heartIcon);
 
-        // Establece un OnClickListener para el ícono del corazón en la esquina superior derecha
+        // Establecer un OnClickListener para el icono del corazón (favoritos)
         heartFavIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Obtener los datos del producto
+                // Datos del producto a agregar a favoritos
                 String productName = getString(R.string.room_sofa);
                 String productPrice = getString(R.string.value57000);
-                int productImage = R.drawable.chair2;
 
-                // Insertar producto en favoritos
-                long resultado = databaseHelper.insertarProducto(productName, productPrice);
-                if (resultado != -1) {
-                    Toast.makeText(SofaDetailActivity.this, "¡Agregado a Favoritos!", Toast.LENGTH_SHORT).show();
-
-                    // Iniciar FavoritosActivity y pasar datos del producto
-                    Intent intent = new Intent(SofaDetailActivity.this, FavoritosActivity.class);
-                    intent.putExtra("productName", productName);
-                    intent.putExtra("productPrice", productPrice);
-                    intent.putExtra("productImage", productImage);
-                    startActivity(intent);
+                // Insertar el producto en la base de datos de favoritos
+                long result = databaseHelper.insertarProducto(productName, productPrice);
+                if (result != -1) {
+                    // Mostrar mensaje de éxito
+                    Toast.makeText(SofaDetailActivity.this, "Producto agregado a favoritos", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(SofaDetailActivity.this, "Error al agregar a Favoritos", Toast.LENGTH_SHORT).show();
+                    // Mostrar mensaje de error si falla la inserción
+                    Toast.makeText(SofaDetailActivity.this, "Error al agregar el producto a favoritos", Toast.LENGTH_SHORT).show();
                 }
+                // Iniciar la actividad FavoritosActivity al hacer clic en el icono home
+                Intent intent = new Intent(SofaDetailActivity.this, FavoritosActivity.class);
+                startActivity(intent);
             }
         });
-
 
 
         // Obtén la referencia del botón Comprar
@@ -72,7 +70,7 @@ public class SofaDetailActivity extends AppCompatActivity {
         comprarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Cuando se hace clic en el botón Comprar, inicia la PagoActivity y pasa detalles del sofá
+                // Cuando se hace clic en el botón Comprar, inicia la PagoActivity y pasa detalles del tv
                 Intent intent = new Intent(SofaDetailActivity.this, PagoActivity.class);
                 intent.putExtra("productName", getString(R.string.room_sofa));
                 intent.putExtra("productImage", R.drawable.chair2);
@@ -82,40 +80,66 @@ public class SofaDetailActivity extends AppCompatActivity {
         });
 
 
-        // Obtén la referencia al ImageView del icono home
+        // Obtén la referencia del botón Agregar al Carrito
+        Button addToCartButton = findViewById(R.id.btnAddToCart);
+
+        // Establece un OnClickListener para el botón Agregar al Carrito
+        addToCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Obtener los datos del producto
+                String productName = getString(R.string.room_sofa);
+                String productPrice = getString(R.string.value57000);
+                // Aquí puedes agregar más lógica para obtener otros detalles del producto si es necesario
+
+                // Insertar producto en el carrito
+                long resultado = carritoHelper.agregarProductoFavorito(productName, productPrice);
+                if (resultado != -1) {
+                    Toast.makeText(SofaDetailActivity.this, "¡Producto agregado al carrito!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(SofaDetailActivity.this, "Error al agregar el producto al carrito", Toast.LENGTH_SHORT).show();
+                }
+                // Cuando se hace clic en el botón Agregar al Carrito, inicia la CarritoActivity
+                Intent intent = new Intent(SofaDetailActivity.this, CarritoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        // Obtener la referencia al ImageView del icono home
         ImageView homeIconImageView = findViewById(R.id.home);
 
-        // Establece un OnClickListener para el icono home
+        // Establecer un OnClickListener para el icono home
         homeIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Cuando se hace clic en el icono home, inicia la ProductsActivity
+                // Iniciar la actividad ProductsActivity al hacer clic en el icono home
                 Intent intent = new Intent(SofaDetailActivity.this, ProductsActivity.class);
                 startActivity(intent);
             }
         });
 
-        // Obtén la referencia al ImageView del ícono del corazón en la barra de navegación inferior
+        // Obtener la referencia al ImageView del icono del corazón en la barra de navegación inferior
         ImageView heartIconImageView = findViewById(R.id.heart);
 
-        // Establece un OnClickListener para el ícono del corazón
+        // Establecer un OnClickListener para el icono del corazón en la barra de navegación inferior
         heartIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Cuando se hace clic en el ícono del corazón, inicia la FavoritosActivity
+                // Iniciar la actividad FavoritosActivity al hacer clic en el icono del corazón
                 Intent intent = new Intent(SofaDetailActivity.this, FavoritosActivity.class);
                 startActivity(intent);
             }
         });
 
-        // Obtén la referencia al ImageView del icono carrito
+        // Obtener la referencia al ImageView del icono carrito
         ImageView cartIconImage = findViewById(R.id.cart);
 
-        // Establece un OnClickListener para el icono carrito
+        // Establecer un OnClickListener para el icono carrito
         cartIconImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Cuando se hace clic en el carrito, inicia la CarritoActivity
+                // Iniciar la actividad CarritoActivity al hacer clic en el icono carrito
                 Intent intent = new Intent(SofaDetailActivity.this, CarritoActivity.class);
                 startActivity(intent);
             }

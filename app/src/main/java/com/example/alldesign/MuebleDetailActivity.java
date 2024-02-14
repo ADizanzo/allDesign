@@ -33,32 +33,29 @@ public class MuebleDetailActivity extends AppCompatActivity {
 
         databaseHelper = new DatabaseHelper(this);
 
-        // Obtén la referencia al ImageView del ícono del corazón en la esquina superior derecha
+        // Obtener la referencia al ImageView del icono del corazón (favoritos)
         ImageView heartFavIconImageView = findViewById(R.id.heartIcon);
 
-        // Establece un OnClickListener para el ícono del corazón en la esquina superior derecha
+        // Establecer un OnClickListener para el icono del corazón (favoritos)
         heartFavIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Obtener los datos del producto
+                // Datos del producto a agregar a favoritos
                 String productName = getString(R.string.mueble);
                 String productPrice = getString(R.string.value36000);
-                int productImage = R.drawable.mueble;
 
-                // Insertar producto en favoritos
-                long resultado = databaseHelper.insertarProducto(getString(R.string.mueble), getString(R.string.value36000));
-                if (resultado != -1) {
-                    Toast.makeText(MuebleDetailActivity.this, "¡Agregado a Favoritos!", Toast.LENGTH_SHORT).show();
-
-                    // Iniciar FavoritosActivity y pasar datos del producto
-                    Intent intent = new Intent(MuebleDetailActivity.this, FavoritosActivity.class);
-                    intent.putExtra("productName", productName);
-                    intent.putExtra("productPrice", productPrice);
-                    intent.putExtra("productImage", productImage);
-                    startActivity(intent);
+                // Insertar el producto en la base de datos de favoritos
+                long result = databaseHelper.insertarProducto(productName, productPrice);
+                if (result != -1) {
+                    // Mostrar mensaje de éxito
+                    Toast.makeText(MuebleDetailActivity.this, "Producto agregado a favoritos", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(MuebleDetailActivity.this, "Error al agregar a Favoritos", Toast.LENGTH_SHORT).show();
+                    // Mostrar mensaje de error si falla la inserción
+                    Toast.makeText(MuebleDetailActivity.this, "Error al agregar el producto a favoritos", Toast.LENGTH_SHORT).show();
                 }
+                // Iniciar la actividad FavoritosActivity al hacer clic en el icono home
+                Intent intent = new Intent(MuebleDetailActivity.this, FavoritosActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -117,6 +114,31 @@ public class MuebleDetailActivity extends AppCompatActivity {
                 intent.putExtra("productName", getString(R.string.mueble));
                 intent.putExtra("productImage", R.drawable.mueble);
                 intent.putExtra("productPrice", getString(R.string.value36000));
+                startActivity(intent);
+            }
+        });
+
+        // Obtén la referencia del botón Agregar al Carrito
+        Button addToCartButton = findViewById(R.id.btnAddToCart);
+
+        // Establece un OnClickListener para el botón Agregar al Carrito
+        addToCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Obtener los datos del producto
+                String productName = getString(R.string.mueble);
+                String productPrice = getString(R.string.value36000);
+                // Aquí puedes agregar más lógica para obtener otros detalles del producto si es necesario
+
+                // Insertar producto en el carrito
+                long resultado = databaseHelper.insertarProducto(productName, productPrice);
+                if (resultado != -1) {
+                    Toast.makeText(MuebleDetailActivity.this, "¡Producto agregado al carrito!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MuebleDetailActivity.this, "Error al agregar el producto al carrito", Toast.LENGTH_SHORT).show();
+                }
+                // Cuando se hace clic en el botón Agregar al Carrito, inicia MuebleDetailActivity
+                Intent intent = new Intent(MuebleDetailActivity.this, CarritoActivity.class);
                 startActivity(intent);
             }
         });
