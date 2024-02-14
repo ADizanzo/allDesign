@@ -28,21 +28,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     COLUMN_PRODUCT_NAME + " TEXT, " +
                     COLUMN_PRODUCT_PRICE + " TEXT);";
 
+    // Constructor
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-
+    // Método llamado cuando la base de datos se crea por primera vez
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Crea la tabla cuando se crea la base de datos
         db.execSQL(CREATE_TABLE);
     }
 
+    // Método llamado cuando la base de datos necesita ser actualizada
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Se ejecuta si hay una actualización de la versión de la base de datos
+        // Descarta la tabla anterior si existe
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        // Vuelve a crear la tabla
         onCreate(db);
     }
 
@@ -52,10 +54,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_PRODUCT_NAME, name);
         values.put(COLUMN_PRODUCT_PRICE, price);
+        // Insertar el producto y obtener su ID
         long id = db.insert(TABLE_NAME, null, values);
         db.close();
         return id;
     }
+
 
     public void actualizarProducto(int id, String name, String price) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -76,4 +80,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.query(TABLE_NAME, null, null, null, null, null, null);
     }
+
 }

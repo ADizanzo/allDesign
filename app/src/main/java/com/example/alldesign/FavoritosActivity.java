@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +30,24 @@ public class FavoritosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favoritos);
 
+        // Recibir datos del producto del Intent
+        Intent intent = getIntent();
+        if (intent != null) {
+            String productName = intent.getStringExtra("productName");
+            String productPrice = intent.getStringExtra("productPrice");
+            int productImage = intent.getIntExtra("productImage", 0);
+
+            // Mostrar los datos del producto en la interfaz de usuario
+            TextView productNameTextView = findViewById(R.id.productTitle);
+            TextView productPriceTextView = findViewById(R.id.productPrice);
+            ImageView productImageView = findViewById(R.id.productImage);
+
+            productNameTextView.setText(productName);
+            productPriceTextView.setText(productPrice);
+            productImageView.setImageResource(productImage);
+        }
+
+
         recyclerView = findViewById(R.id.recyclerViewFavoritos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         productList = new ArrayList<>();
@@ -45,7 +64,6 @@ public class FavoritosActivity extends AppCompatActivity {
         // Obtener la referencia a los botones
         Button btnConsultar = findViewById(R.id.btnConsultar);
         Button btnEliminarFavorito = findViewById(R.id.btnEliminarFavorito);
-
 
         // OnClickListener para el botón "Ver producto"
         btnConsultar.setOnClickListener(new View.OnClickListener() {
@@ -80,8 +98,6 @@ public class FavoritosActivity extends AppCompatActivity {
                 }
             }
         });
-
-
 
         // Obtén la referencia al ImageView del icono de retroceso
         ImageView backIconImageView = findViewById(R.id.backIcon);
@@ -127,21 +143,25 @@ public class FavoritosActivity extends AppCompatActivity {
         productList.clear();
         if (cursor.moveToFirst()) {
             do {
-                // int id = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_ID));
-                // String name = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_PRODUCT_NAME));
-                // String price = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_PRODUCT_PRICE));
-                // Product product = new Product(id, name, price);
-                // productList.add(product);
+                int idIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID);
+                int nameIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_PRODUCT_NAME);
+                int priceIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_PRODUCT_PRICE);
+
+                if (idIndex != -1 && nameIndex != -1 && priceIndex != -1) {
+                    int id = cursor.getInt(idIndex);
+                    String name = cursor.getString(nameIndex);
+                    String price = cursor.getString(priceIndex);
+                    Product product = new Product(id, name, price);
+                    productList.add(product);
+                }
             } while (cursor.moveToNext());
         }
         cursor.close();
         favoritosAdapter.notifyDataSetChanged();
     }
 
-    private void eliminarProductoFavorito(int productId) {
-        databaseHelper.eliminarProducto(productId);
-    }
 }
+
 
 
 

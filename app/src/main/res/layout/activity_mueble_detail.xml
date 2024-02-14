@@ -50,7 +50,7 @@
         android:id="@+id/sofaTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/MuebleRústico"
+        android:text="@string/mueble"
         android:textSize="24sp"
         android:textColor="#000000"
         android:textStyle="bold"

@@ -40,11 +40,22 @@ public class VeladorDetailActivity extends AppCompatActivity {
         heartFavIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Obtener los datos del producto
+                String productName = getString(R.string.velador);
+                String productPrice = getString(R.string.value18000);
+                int productImage = R.drawable.velador;
 
                 // Insertar producto en favoritos
                 long resultado = databaseHelper.insertarProducto(getString(R.string.velador), getString(R.string.value18000));
                 if (resultado != -1) {
                     Toast.makeText(VeladorDetailActivity.this, "¡Agregado a Favoritos!", Toast.LENGTH_SHORT).show();
+
+                    // Iniciar FavoritosActivity y pasar datos del producto
+                    Intent intent = new Intent(VeladorDetailActivity.this, FavoritosActivity.class);
+                    intent.putExtra("productName", productName);
+                    intent.putExtra("productPrice", productPrice);
+                    intent.putExtra("productImage", productImage);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(VeladorDetailActivity.this, "Error al agregar a Favoritos", Toast.LENGTH_SHORT).show();
                 }
@@ -109,7 +120,4 @@ public class VeladorDetailActivity extends AppCompatActivity {
         });
     }
 
-    private void agregarProductoAFavoritos() {
-        // Aquí puedes realizar cualquier acción adicional cuando se agrega a favoritos
-    }
 }

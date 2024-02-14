@@ -40,17 +40,27 @@ public class TvDetailActivity extends AppCompatActivity {
         heartFavIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Obtener los datos del producto
+                String productName = getString(R.string.samsung_tv);
+                String productPrice = getString(R.string.value112000);
+                int productImage = R.drawable.tele;
 
                 // Insertar producto en favoritos
                 long resultado = databaseHelper.insertarProducto(getString(R.string.samsung_tv), getString(R.string.value112000));
                 if (resultado != -1) {
                     Toast.makeText(TvDetailActivity.this, "¡Agregado a Favoritos!", Toast.LENGTH_SHORT).show();
+
+                    // Iniciar FavoritosActivity y pasar datos del producto
+                    Intent intent = new Intent(TvDetailActivity.this, FavoritosActivity.class);
+                    intent.putExtra("productName", productName);
+                    intent.putExtra("productPrice", productPrice);
+                    intent.putExtra("productImage", productImage);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(TvDetailActivity.this, "Error al agregar a Favoritos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
 
 
 
@@ -111,8 +121,4 @@ public class TvDetailActivity extends AppCompatActivity {
         });
     }
 
-    private void agregarProductoAFavoritos() {
-        // Aquí deberías agregar la lógica para agregar el producto a la lista de favoritos
-        // Puedes almacenar la información del producto en una base de datos, SharedPreferences, etc.
-    }
 }

@@ -41,16 +41,28 @@ public class SofaDetailActivity extends AppCompatActivity {
         heartFavIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Obtener los datos del producto
+                String productName = getString(R.string.room_sofa);
+                String productPrice = getString(R.string.value57000);
+                int productImage = R.drawable.chair2;
 
                 // Insertar producto en favoritos
-                long resultado = databaseHelper.insertarProducto(getString(R.string.room_sofa), getString(R.string.value57000));
+                long resultado = databaseHelper.insertarProducto(productName, productPrice);
                 if (resultado != -1) {
                     Toast.makeText(SofaDetailActivity.this, "¡Agregado a Favoritos!", Toast.LENGTH_SHORT).show();
+
+                    // Iniciar FavoritosActivity y pasar datos del producto
+                    Intent intent = new Intent(SofaDetailActivity.this, FavoritosActivity.class);
+                    intent.putExtra("productName", productName);
+                    intent.putExtra("productPrice", productPrice);
+                    intent.putExtra("productImage", productImage);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(SofaDetailActivity.this, "Error al agregar a Favoritos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
 
 
         // Obtén la referencia del botón Comprar
@@ -103,7 +115,7 @@ public class SofaDetailActivity extends AppCompatActivity {
         cartIconImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Cuando se hace clic en el icono home, inicia la CarritoActivity
+                // Cuando se hace clic en el carrito, inicia la CarritoActivity
                 Intent intent = new Intent(SofaDetailActivity.this, CarritoActivity.class);
                 startActivity(intent);
             }

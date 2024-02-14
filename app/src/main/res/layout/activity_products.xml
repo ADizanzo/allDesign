@@ -265,7 +265,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/MuebleRústico"
+                android:text="@string/mueble"
                 android:textSize="18sp"
                 android:textColor="#000000"
                 android:layout_marginTop="15dp"/>

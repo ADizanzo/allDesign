@@ -11,7 +11,7 @@
     <!-- Productos -->
     <string name="sofa">Sofá</string>
     <string name="lampara">Lámpara</string>
-    <string name="MuebleRústico">Mueble Rústico</string>
+    <!-- <string name="MuebleRústico">Mueble Rústico</string> -->
     <string name="chair">Silla</string>
     <string name="tv">Televisor</string>
     <string name="velador">Velador</string>
@@ -106,6 +106,7 @@
     <string name="act">Actual</string>
     <string name="elim">Borra</string>
     <string name="cons">Listar</string>
+    <string name="type_sofa" />
 
 
 </resources>

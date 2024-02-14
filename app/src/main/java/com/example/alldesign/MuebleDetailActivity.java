@@ -40,11 +40,22 @@ public class MuebleDetailActivity extends AppCompatActivity {
         heartFavIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Obtener los datos del producto
+                String productName = getString(R.string.mueble);
+                String productPrice = getString(R.string.value36000);
+                int productImage = R.drawable.mueble;
 
                 // Insertar producto en favoritos
                 long resultado = databaseHelper.insertarProducto(getString(R.string.mueble), getString(R.string.value36000));
                 if (resultado != -1) {
                     Toast.makeText(MuebleDetailActivity.this, "¡Agregado a Favoritos!", Toast.LENGTH_SHORT).show();
+
+                    // Iniciar FavoritosActivity y pasar datos del producto
+                    Intent intent = new Intent(MuebleDetailActivity.this, FavoritosActivity.class);
+                    intent.putExtra("productName", productName);
+                    intent.putExtra("productPrice", productPrice);
+                    intent.putExtra("productImage", productImage);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(MuebleDetailActivity.this, "Error al agregar a Favoritos", Toast.LENGTH_SHORT).show();
                 }
@@ -64,6 +75,7 @@ public class MuebleDetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         // Obtén la referencia al ImageView del ícono del corazón en la barra de navegación inferior
         ImageView heartIconImageView = findViewById(R.id.heart);
@@ -102,7 +114,7 @@ public class MuebleDetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Cuando se hace clic en el botón Comprar, inicia la PagoActivity y pasa detalles del mueble
                 Intent intent = new Intent(MuebleDetailActivity.this, PagoActivity.class);
-                intent.putExtra("productName", getString(R.string.MuebleRústico));
+                intent.putExtra("productName", getString(R.string.mueble));
                 intent.putExtra("productImage", R.drawable.mueble);
                 intent.putExtra("productPrice", getString(R.string.value36000));
                 startActivity(intent);
@@ -110,7 +122,5 @@ public class MuebleDetailActivity extends AppCompatActivity {
         });
     }
 
-    private void agregarProductoAFavoritos() {
-        // Aquí puedes realizar cualquier acción adicional cuando se agrega a favoritos
-    }
+
 }
