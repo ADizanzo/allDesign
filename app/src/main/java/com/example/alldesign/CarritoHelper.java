@@ -33,6 +33,7 @@ public class CarritoHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Crea la tabla del carrito al crear la base de datos
@@ -58,4 +59,7 @@ public class CarritoHelper extends SQLiteOpenHelper {
     public Cursor obtenerProductosFavoritos() {
         return null;
     }
+
+
+
 }
