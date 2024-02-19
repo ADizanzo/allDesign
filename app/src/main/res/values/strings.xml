@@ -51,6 +51,15 @@
     <string name="value57000">$57000</string>
     <string name="value36000">$36000</string>
     <string name="value112000">$112000</string>
+    <string name="value24000">$24000</string>
+    <string name="value22000">$22000</string>
+    <string name="value20000">$20000</string>
+    <string name="value157000">$157000</string>
+    <string name="value136000">$136000</string>
+    <string name="value258000">$258000</string>
+    <string name="value48000">$48000</string>
+    <string name="value46000">$46000</string>
+    <string name="value44000">$44000</string>
 
     <!-- Círculos -->
     <string name="gris_circle">Círculo gris</string>
@@ -108,6 +117,7 @@
     <string name="cons">Listar</string>
     <string name="type_sofa" />
     <string name="agregar_al_carrito">Agregar al Carrito</string>
+
 
 
 </resources>

@@ -29,6 +29,7 @@ public class CarritoHelper extends SQLiteOpenHelper {
                     COLUMN_PRODUCT_NAME + " TEXT, " +
                     COLUMN_PRODUCT_PRICE + " TEXT);";
 
+
     public CarritoHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }

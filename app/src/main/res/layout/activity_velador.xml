@@ -158,7 +158,7 @@
                 android:layout_height="130dp"
                 android:contentDescription="@string/velador"
                 android:scaleType="centerCrop"
-                android:src="@drawable/velador"
+                android:src="@drawable/velador3"
                 tools:ignore="ImageContrastCheck" />
 
             <!-- Título del producto -->
@@ -174,7 +174,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/value18000"
+                android:text="@string/value20000"
                 android:textSize="16sp"
                 android:textColor="#000000"/>
 
@@ -215,7 +215,7 @@
                 android:layout_height="130dp"
                 android:contentDescription="@string/velador"
                 android:scaleType="centerCrop"
-                android:src="@drawable/velador"
+                android:src="@drawable/velador5"
                 tools:ignore="ImageContrastCheck" />
 
             <!-- Título del producto -->
@@ -231,7 +231,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/value18000"
+                android:text="@string/value22000"
                 android:textSize="16sp"
                 android:textColor="#000000"/>
 
@@ -272,7 +272,7 @@
                 android:layout_height="130dp"
                 android:contentDescription="@string/velador"
                 android:scaleType="centerCrop"
-                android:src="@drawable/velador"
+                android:src="@drawable/velador7"
                 tools:ignore="ImageContrastCheck" />
 
             <!-- Título del producto -->
@@ -288,7 +288,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/value18000"
+                android:text="@string/value24000"
                 android:textSize="16sp"
                 android:textColor="#000000"/>
 

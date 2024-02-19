@@ -33,11 +33,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+
     // Método llamado cuando la base de datos se crea por primera vez
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE);
     }
+
 
     // Método llamado cuando la base de datos necesita ser actualizada
     @Override
